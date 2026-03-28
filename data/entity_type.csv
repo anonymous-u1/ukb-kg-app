@@ -1,0 +1,12 @@
+Abbr,Entity Type,Count,Percent,Description
+GENE,Genes & Molecular Sequences,23202,0.283,"Gene or genome; molecular, nucleotide, amino acid, and carbohydrate sequences."
+MEAS,Measurements,15145,0.185,"Clinical findings, laboratory/test results, and measurable attributes of an organism."
+DISO,Disorders,12916,0.157,Disease or syndrome; abnormalities; injury or poisoning; pathologic dysfunction; signs and symptoms.
+PHYS,Physiology,8342,0.102,Biologic/physiologic functions and organism/tissue/cell-level functions.
+PROC,Procedures,6856,0.084,"Procedures in healthcare, diagnosis, laboratory testing, therapy, and research."
+CHEM,Chemicals,6738,0.082,"Chemicals; pharmacologic/biologically active substances; hormones, enzymes, vitamins; hazardous substances; clinical drugs."
+MISC,Miscellaneous,3715,0.045,"Miscellaneous entities, such as concepts, living beings, objects, devices."
+ANAT,Anatomy,3372,0.041,Anatomical structures and regions; body systems/organs; tissues; cells and cell components.
+ACTI,Activities,872,0.011,"Activities, behaviors and phenomena. Many lifestyle and exposure factors are included here."
+BASE,Baseline Demographics,810,0.01,"Baseline demographics, such as population, age, and patient-related groups."
+Total,,81968,,
