@@ -137,35 +137,56 @@ def find_related_nodes(name: str) -> list[dict]:
 
 
 def create_network(nodes: list[dict], edges: list[dict]) -> str:
-    net = Network(height="750px", width="100%", notebook=False, directed=True, bgcolor="#0E1117", font_color="#FAFAFA")
+    theme = getattr(st.context.theme, "type", "dark")
+
+    if theme == "light":
+        bgcolor = "#FFFFFF"
+        font_color = "#111827"
+        edge_color = "#9CA3AF"
+    else:
+        bgcolor = "#0E1117"
+        font_color = "#FAFAFA"
+        edge_color = "#7F8C8D"
+
+    net = Network(
+        height="750px",
+        width="100%",
+        notebook=False,
+        directed=True,
+        bgcolor=bgcolor,
+        font_color=font_color,
+    )
 
     for node in nodes:
         label = next(iter(node.labels), "Node")
         color = NODE_COLORS.get(label, "#9AA0A6")
+
         degree = sum(
             1
             for edge in edges
             if edge.start_node.id == node.id or edge.end_node.id == node.id
         )
+
         net.add_node(
             node.id,
             label=node.get("name", ""),
             title=f"{node.get('name', '')} ({label})<br>Degree: {degree}",
             color=color,
-            font={"color": "#FFFFFF"},
+            font={"color": font_color},
             size=max(18, min(42, 16 + degree * 2)),
         )
 
     for edge in edges:
         pmcid = edge.get("PMCID") or edge.get("pmcid") or ""
         title = edge.type if not pmcid else f"{edge.type}<br>{pmcid}"
+
         net.add_edge(
             edge.start_node.id,
             edge.end_node.id,
             label=edge.type,
             title=title,
-            color="#7F8C8D",
-            font={"color": "#D0D7DE", "size": 12},
+            color=edge_color,
+            font={"color": font_color, "size": 12},
             arrows="to",
         )
 
